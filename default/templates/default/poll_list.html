@@ -1,20 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>投票主題</h1>
+{% extends "base.html" %}
 
-    <ul>
-    {% for poll in poll_list %}
-        <li>
-            {{ poll.created }} 
-            <a href="/poll/{{ poll.id }}/">{{ poll.subject }}</a>
-        </li>
-    {% endfor %}
-    </ul>
-</body>
-</html>
+{% block content %}
+<h1>投票主題</h1>
+<a href="/poll/create/">新增投票主題</a>
+<ul>
+{% for poll in poll_list %}
+    <li>
+        {{ poll.created }} 
+        <a href="/poll/{{ poll.id }}/">{{ poll.subject }}</a>
+    </li>
+{% endfor %}
+</ul>
+{% endblock content %}
