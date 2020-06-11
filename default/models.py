@@ -7,7 +7,7 @@ class Poll(models.Model):
     created = models.DateField('建立時間', auto_now_add=True)
 
     def __str__(self):
-        return "{}: {}".format(self.id, self.subject)
+        return "投票主題 {}".format(self.subject)
 
 class Option(models.Model):
     poll_id = models.IntegerField('所屬投票主題')
@@ -15,4 +15,4 @@ class Option(models.Model):
     count = models.IntegerField('票數', default=0)
 
     def __str__(self):
-        return "{}: ({}) {}".format(self.id, self.poll_id, self.title)
+        return "投票選項 {}".format(self.title)

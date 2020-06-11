@@ -3,12 +3,17 @@
 {% block content %}
 <a href="/poll/">投票主題列表</a>
 <h1>{{ poll.subject }}</h1>
+<a href="/poll/{{ poll.id }}/edit/">修改</a> | <a href="/poll/{{ poll.id }}/delete/">刪除</a>
 <p>{{ poll.desc|linebreaksbr }}</p>
 
+<a href="/poll/{{ poll.id }}/add/">新增選項</a>
 <ul>
     {% for option in option_list %}
     <li>
-        <a href="/option/{{ option.id }}/">{{ option.title }}</a> : {{ option.count }} 票
+        <a href="/option/{{ option.id }}/">{{ option.title }}</a>
+        : {{ option.count }} 票
+        | <a href="/option/{{ option.id }}/edit/">修改</a>
+        | <a href="/option/{{ option.id }}/delete/">刪除</a>
     </li>
     {% endfor %}
 </ul>
